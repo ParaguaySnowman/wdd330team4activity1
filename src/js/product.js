@@ -1,16 +1,57 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
 function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
+  //We need to get existing cart items from the localStorage
+  let cart = getLocalStorage('so-cart') || [];
+
+  //Next we need to add the new product to the cart array
+  cart.push(product);
+
+  //Now we need to make sure to save the updated cart array back to localStorage
+  setLocalStorage('so-cart', cart);
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await findProductById(e.target.dataset.id);
   addProductToCart(product);
+  //I'm adding a cart count in the header
+  updateCartCount();
 }
 
 // add listener to Add to Cart button
 document
-  .getElementById("addToCart")
+  .getElementById('addToCart')
   .addEventListener("click", addToCartHandler);
+
+
+//This function calculates the total number of items in the cart
+function calculateCartQuantity(){
+  const cartItems = getLocalStorage('so-cart') || [];
+  //Get the sum of cart items
+  return cartItems.reduce((total, item) => total + item.quantity, 0);
+}
+
+//This is the cart counter in the header
+function updateCartCount() {
+  // Fetch the cart from local storage
+  const cartItems = getLocalStorage("so-cart") || [];
+  
+  // Calculate the total number of items in the cart
+  const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+
+  // Get the cart count element (update its content)
+  const cartCountElement = document.getElementById("cart-count");
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+  }
+}
+
+// Ensure that the function runs when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+//Update the count on page load
+updateCartCount();
+
+
