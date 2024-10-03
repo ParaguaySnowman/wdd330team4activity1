@@ -1,14 +1,13 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
 function addProductToCart(product) {
-  //We need to get existing cart items from the localStorage
-  let cart = getLocalStorage("so-cart") || [];
-
-  //Next we need to add the new product to the cart array
+  let cart = getLocalStorage("so-cart");
+  if (cart === null) {
+    cart = [];
+  }
   cart.push(product);
-
-  //Now we need to make sure to save the updated cart array back to localStorage
   setLocalStorage("so-cart", cart);
 }
 // add to cart button event handler
