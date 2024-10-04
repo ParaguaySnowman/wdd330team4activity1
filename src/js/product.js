@@ -12,14 +12,14 @@ productDetails(productId);
 //   }
 //   cart.push(product);
 //   setLocalStorage("so-cart", cart);
-// }
+// } 
 // add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await findProductById(e.target.dataset.id);
-  addProductToCart(product);
+// async function addToCartHandler(e) {
+//   const product = await findProductById(e.target.dataset.id);
+//   addProductToCart(product);
   //I'm adding a cart count in the header
-  updateCartCount();
-}
+  // updateCartCount();
+// }
 
 // // add listener to Add to Cart button
 // document
@@ -52,7 +52,7 @@ async function addToCartHandler(e) {
 // }
 
 // Ensure that the function runs when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", updateCartCount);
+// document.addEventListener("DOMContentLoaded", updateCartCount);
 
 //Update the count on page load
-updateCartCount();
+// updateCartCount();

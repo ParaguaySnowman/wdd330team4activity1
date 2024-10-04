@@ -1,17 +1,26 @@
 import { findProductById } from "./productData.mjs";
 import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
-let keyDetails = {};
+let product = {};
 
 export default async function productDetails(productId){
-    keyDetails = await findProductById(productId);
+
+    product = await findProductById(productId);
+
     renderProductDetails();
+
     document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 
 function addToCart() {
-    setLocalStorage("so-cart", product);
-  }
+  let cart = getLocalStorage("so-cart");
+    if (cart === null) {
+      cart = [];
+    }
+    cart.push(product);
+  setLocalStorage("so-cart", cart);
+} 
 
 function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
