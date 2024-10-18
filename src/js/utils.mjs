@@ -30,3 +30,40 @@ export function getParam(param){
   // Parse the query string 
   // Get the value for the specified parameter
 }
+
+export async function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin", clear = true) {
+  const template = await templateFn(); // Get the template content
+  if (clear) {
+      parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, template);
+  if (callback) {
+      callback(data);
+  }
+}
+
+function loadTemplate(path) {
+  // wait what?  we are returning a new function? 
+  // this is called currying and can be very helpful.
+  return async function () {
+      const res = await fetch(path);
+      if (res.ok) {
+      const html = await res.text();
+      return html;
+      }
+  };
+} 
+
+export function loadHeaderFooter(){
+  //Load the header and footer templates in from our partials.
+    const headerTemplateFn = loadTemplate("/partials/header.html");
+    const footerTemplateFn = loadTemplate("/partials/footer.html");
+    
+  //Grab the header and footer elements out of the DOM
+    const headerEl = document.getElementById("main-header");
+    const footerEl = document.getElementById("main-footer");
+
+  //Render the header and footer (renderWithTemplate).
+  renderWithTemplate(headerTemplateFn, headerEl);
+  renderWithTemplate(footerTemplateFn, footerEl);    
+}
