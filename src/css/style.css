@@ -112,6 +112,35 @@ button {
 
 /* End cart icon styles */
 
+/*PRODUCT GRID*/
+.product-grid{
+  list-style:none;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align:center;
+  padding-left:0;
+}
+
+.product-grid li{
+  width:100px;
+  padding: 20px;
+  margin:20px;
+}
+
+.product-grid h2{
+  font-size: 15px;
+}
+
+.product-grid a{
+  text-decoration: none;
+}
+
+.product-grid a:link,
+.product-grid a:visited{
+  color: var(--dark-grey);
+}
+
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
