@@ -112,6 +112,34 @@ button {
 
 /* End cart icon styles */
 
+/*PRODUCT CATEGORIES*/
+.product-categories{
+  display:flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap:wrap;
+  text-align: center;
+  color: var(--dark-grey);
+  left:0;
+}
+
+.product-categories li{
+  width: 100px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.product-categories h2{
+  font-size: 15px;
+}
+
+.product-categories a{
+  text-decoration: none;
+}
+
+.product-categories a:link, .product-categories a:visited{
+  color: var(--dark-grey);
+}
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
