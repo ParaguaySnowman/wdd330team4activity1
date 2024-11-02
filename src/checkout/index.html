@@ -1,78 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
   </head>
-
   <body>
-    <header class="divider" id="main-header">
+    <header class="divider" id="main-header"></header>
+    <main class="divider checkout">
+      <h2>Review & Place your Order</h2>
+      <section class="checkout-form">
+        <form name="checkout">
+          <fieldset>
+            <legend>Shipping</legend>
+            <div class="checkout__name">
+              <label for="fname">First Name</label>
+              <input name="fname" required />
+              <label for="lname">Last Name</label>
+              <input name="lname" required />
+            </div>
+            <div class="checkout__address">
+              <label for="street">Street</label>
+              <input name="street" required />
+              <label for="city">City</label>
+              <input name="city" required />
+              <label for="state">State</label>
+              <input name="state" required />
+              <label for="zip">Zip</label>
+              <input name="zip" id="zip" required />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label for="cardNumber">Card number</label>
+            <input name="cardNumber" required />
+            <label for="expiration">Expiration</label>
+            <input name="expiration" required />
+            <label for="code">Security Code</label>
+            <input name="code" required />
+          </fieldset>
+          <fieldset class="checkout-summary">
+            <legend>Order Summary</legend>
+            <ul>
+              <li>
+                <label for="cartTotal"
+                  >Item Subtotal(<span id="num-items"></span>)</label
+                >
+                <p name="cartTotal" id="cartTotal"></p>
+              </li>
+              <li>
+                <label for="shipping">Shipping Estimate</label>
+                <p id="shipping"></p>
+              </li>
+              <li>
+                <label for="tax">Tax</label>
+                <p id="tax"></p>
+              </li>
+              <li>
+                <label for="orderTotal"><b>Order Total</b></label>
+                <p id="orderTotal"></p>
+              </li>
+            </ul>
+          </fieldset>
 
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-        <form action="" method="get">
-          <fieldset>
-              <legend>Shipping</legend>
-              <label for="first-name">
-                  First Name
-                  <input type="text" name="firstName" required>
-              </label>
-              <label for="last-name">
-                  Last Name
-                  <input type="text" name="lastName" required>
-              </label>
-              <label for="street">
-                  Street
-                  <input type="text" name="street" required>
-              </label>
-              <label for="city">
-                  City
-                  <input type="text" name="city" required>
-              </label>
-              <label for="state">
-                  State
-                  <input type="text" name="state" required>
-              </label>
-              <label for="zip-code">
-                  Zip code
-                  <input type="text" name="zip-code" required>
-              </label>
-          </fieldset>
-          <fieldset>
-              <legend>Payment</legend>
-              <label for="card-number">
-                  Card number
-                  <input type="text" name="card-number" pattern="\d{13,16}" placeholder="1234 5678 9012 3456" required>
-              </label>
-              <label for="expiration-date">Expiration Date (MM/YY):
-                  <input type="text" id="expiration-date" name="expiration-date" pattern="\d{2}/\d{2}" placeholder="MM/YY" required>
-              </label>
-         
-     
-          <label for="security-code">Security Code (CVV):
-              <input type="text" id="security-code" name="security-code" pattern="\d{3,4}" placeholder="123" required>
-          </label>
-          </fieldset>
-
-          <fieldset>
-              <legend>Order Summary</legend>
-              <label for="">Item subtotal</label>
-              <label for="">Shipping estimate</label>
-              <label for="">Tax</label>
-              <label for="">Order total</label>
-              <button type="submit">Checkout</button>
-          </fieldset>
-      </form>
+          <button id="checkoutSubmit" type="submit">Checkout</button>
+        </form>
       </section>
     </main>
-
-    <footer>&copy;NOT a real business</footer>
+    <footer id="main-footer"></footer>
   </body>
 </html>
