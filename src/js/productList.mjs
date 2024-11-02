@@ -1,7 +1,7 @@
-import { getData } from "./productData.mjs";
+import {getProductsByCategory } from "./externalServices.mjs";
 
 export default function productList(category, selector) {
-  getData(category)
+  getProductsByCategory(category)
     .then((products) => {
       const productListContainer = document.querySelector(selector);
       productListContainer.innerHTML = ""; // Clear existing content
