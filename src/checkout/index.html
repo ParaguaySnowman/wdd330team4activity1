@@ -12,7 +12,7 @@
     <main class="divider checkout">
       <h2>Review & Place your Order</h2>
       <section class="checkout-form">
-        <form name="checkout">
+        <form id="checkoutForm" name="checkout">
           <fieldset>
             <legend>Shipping</legend>
             <div class="checkout__name">
@@ -45,28 +45,26 @@
             <legend>Order Summary</legend>
             <ul>
               <li>
-                <label for="cartTotal"
-                  >Item Subtotal(<span id="num-items"></span>)</label
-                >
-                <p name="cartTotal" id="cartTotal"></p>
+                <label for="cartTotal">Item Subtotal(<span id="num-items"></span>)</label>
+                <span id="cartTotal"></span>
               </li>
               <li>
                 <label for="shipping">Shipping Estimate</label>
-                <p id="shipping"></p>
+                <span id="shipping"></span>
               </li>
               <li>
                 <label for="tax">Tax</label>
-                <p id="tax"></p>
+                <span id="tax"></span>
               </li>
               <li>
                 <label for="orderTotal"><b>Order Total</b></label>
-                <p id="orderTotal"></p>
+                <span id="orderTotal"></span>
               </li>
             </ul>
           </fieldset>
-
-          <button id="checkoutSubmit" type="submit">Checkout</button>
-        </form>
+        
+          <button id="submitBtn" type="submit">Submit</button>
+        </form>        
       </section>
     </main>
     <footer id="main-footer"></footer>
