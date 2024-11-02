@@ -11,12 +11,12 @@ export default function shoppingCart() {
 function displayCartTotal(total) {
   if (total > 0) {
     // show our checkout button and total if there are items in the cart.
-    document.querySelector(".list-footer").classList.remove("hide");
     document.querySelector(".list-total").innerText += ` $${total}`;
   } else {
-    document.querySelector(".list-footer").classList.add("hide");
+    document.querySelector(".list-total").classList.add("hide");
   }
 }
+
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
