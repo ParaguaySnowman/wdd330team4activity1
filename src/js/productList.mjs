@@ -1,4 +1,4 @@
-import {getProductsByCategory } from "./externalServices.mjs";
+import {getProductsByCategory } from "./productData.mjs";
 
 export default function productList(category, selector) {
   getProductsByCategory(category)
