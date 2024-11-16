@@ -43,3 +43,15 @@ export async function checkout(payload) {
   };
   return await fetch(baseURL + "checkout/", options).then(convertToJson);
 }
+
+export async function loginRequest(creds){
+  const options = {
+    method: "POST",
+    headers: {
+      "Conent-Type": "application/json", 
+    },
+    body: JSON.stringify(creds),
+  };
+  const response = await fetch(baseURL + "login", options).then(convertToJson);
+  return response.accessToken;
+}
