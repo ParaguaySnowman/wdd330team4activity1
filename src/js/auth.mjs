@@ -1,11 +1,11 @@
 import { loginRequest } from "./productData.mjs";
-import {getLocalStorage, setLocalStorage} from "./utils.mjs";
-import jwt_decode from "jwt-decode";
+import {alertMessage, getLocalStorage, setLocalStorage} from "./utils.mjs";
+import {jwtDecode} from "jwt-decode";
 
 const tokenKey = "so-token";
 export async function login(creds, redirect = "/"){
     try {
-        const token = await login(creds);
+        const token = await loginRequest(creds);
         setLocalStorage(tokenKey,token);
 
         window.location = redirect;
@@ -28,7 +28,7 @@ export function checkLogin(){
 
 function isTokenValid(token){
     if(token){
-        const decoded = jwt_decode(token);
+        const decoded = jwtDecode(token);
         let currentDate = new Date();
         if (decoded.exp*1000 < currentDate.getTime()){
             console.log("Token expired.")
