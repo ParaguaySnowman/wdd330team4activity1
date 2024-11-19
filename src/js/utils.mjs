@@ -86,6 +86,7 @@ export async function loadHeaderFooter() {
 export function alertMessage(message, scroll = true, duration = 3000) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
+  message = 'not a valid user'
   alert.innerHTML = `<p>${message}</p><span>X</span>`;
 
   alert.addEventListener("click", function (e) {
@@ -103,9 +104,4 @@ export function alertMessage(message, scroll = true, duration = 3000) {
   // setTimeout(function () {
   //   main.removeChild(alert);
   // }, duration);
-}
-
-export function removeAllAlerts() {
-  const alerts = document.querySelectorAll(".alert");
-  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
