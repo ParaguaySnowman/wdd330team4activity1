@@ -8,4 +8,6 @@ const category = urlParams.get("category");
 
 productList(category, ".product-list");
 
-loadHeaderFooter();
+document.addEventListener("DOMContentLoaded", () => {
+    loadHeaderFooter();
+  });

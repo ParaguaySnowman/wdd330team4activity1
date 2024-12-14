@@ -6,11 +6,13 @@ console.log(baseURL);
 
 async function convertToJson(res) {
   if (res.ok) {
-    return data;
+    return await res.json(); // Parse and return JSON data
   } else {
-    throw { name: "servicesError", message: data };
+    const errorData = await res.json(); // Parse error response
+    throw { name: "servicesError", message: errorData };
   }
 }
+
 
 export async function getProductsByCategory(category) {
   // for testing with local json data
