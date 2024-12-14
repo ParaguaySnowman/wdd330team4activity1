@@ -94,6 +94,7 @@ export function alertMessage(message, scroll = true, duration = 3000) {
       main.removeChild(this);
     }
   });
+
   const main = document.querySelector("main");
   main.prepend(alert);
   // make sure they see the alert by scrolling to the top of the window
@@ -104,4 +105,11 @@ export function alertMessage(message, scroll = true, duration = 3000) {
   // setTimeout(function () {
   //   main.removeChild(alert);
   // }, duration);
+
+  
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
